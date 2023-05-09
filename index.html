@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="index.js"></script>
+    <title>Car Show </title>
+</head>
+<body>
+    <a class="weatherwidget-io" href="https://forecast7.com/en/33d43n111d94/tempe/?unit=us" 
+    data-label_1="TEMPE" data-label_2="WEATHER" data-theme="original" >TEMPE WEATHER</a>
+    <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id))
+            {js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script>
+    <p id="demo"></p>
+    <header>
+       <strong>Welcome to our car show!</strong> 
+    </header>
+    <div>
+        <form>
+            <br><br>
+            <label for="make">Car make:</label>
+            <input type="text" name="make" placeholder="Add car make..."/>
+            <br><br>
+            <label for="model">Car model:</label> 
+            <input type="text" name="model" placeholder="Add car model..."/>
+            <br><br>
+            <label for="year">Car year</label> 
+            <input type="number" year="year" placeholder="Car year."/>
+            <br><br>
+            <label for="trim">Car model:</label> 
+            <input type="text" name="trim" placeholder="Add car trim..."/>
+            <br><br>
+            <button type="submit">Add to list</button>
+        </form>
+        <br>
+            <h4>My car list:</h4>
+            <ul>
+                <!-- Car from (form) added here -->
+            </ul>
+        </div>
+    
+</body>
+</html>
