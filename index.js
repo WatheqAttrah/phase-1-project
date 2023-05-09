@@ -1,5 +1,7 @@
 //Add EventListener to Button
-
+document.querySelector('form').addEventListener('submit', handleSubmit)
+const demo=document.getElementById('demo');
+demo.textContent=Date();
 
 //callback function for event listener
 
