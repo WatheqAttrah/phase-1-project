@@ -43,3 +43,7 @@ btn.addEventListener('click', e=>e.target.parentNode.parentNode.remove())
 
 
 //load my cars list from json file
+function initialize(){
+    getAllCars();
+}
+initialize();
