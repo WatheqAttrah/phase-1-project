@@ -25,14 +25,19 @@ function renderOneCar(car){
 
          <button type="click">Remove From List</button>
          </div> `;
-
-
-//add new car to my car list and append it to ul
+//add new car to my car list and append it to Unordered List
 document.querySelector('ul').appendChild(card);
 let btn = document.querySelector('div ul');
 btn.addEventListener('click', e=>e.target.parentNode.parentNode.remove());
 }
 
+
+//contact json server and load my cars list json file
+function getAllcars(){
+    fetch("http://localhost:3000/carShow")
+    .then(response =>response.json())
+    .then(cars => cars.forEach(car => renderOneCar(car)))
+}
 
 //take car from (form) and add it to page
 function addCar(carShow){
