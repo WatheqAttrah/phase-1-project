@@ -1,7 +1,5 @@
 //Add EventListener to Button
-document.querySelector('form').addEventListener('submit', handleSubmit)
-const demo=document.getElementById('demo');
-demo.textContent=Date();
+document.querySelector('form').addEventListener('submit', handleSubmit);
 
 //callback function for event listener
 function handleSubmit(e){
@@ -15,8 +13,6 @@ function handleSubmit(e){
 renderOneCar(carShow)
 document.querySelector('form').reset()
 }
-
-
 //add car to the car list
 function renderOneCar(car){
     let card = document.createElement("li")
@@ -32,15 +28,24 @@ function renderOneCar(car){
 
 
 //add new car to my car list and append it to ul
-document.querySelector('ul').appendChild(card)
-let btn = document.querySelector('div ul')
-btn.addEventListener('click', e=>e.target.parentNode.parentNode.remove())
+document.querySelector('ul').appendChild(card);
+let btn = document.querySelector('div ul');
+btn.addEventListener('click', e=>e.target.parentNode.parentNode.remove());
 }
 
 
 //take car from (form) and add it to page
-
-
+function addCar(carShow){
+    fetch("http://localhost:3000/carShow",{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+    body: JSON.stringify(carShow)
+    })
+    .then(response=>response.json())
+    .then(car=>renderOneCar(car))
+}
 
 //load my cars list from json file
 function initialize(){
