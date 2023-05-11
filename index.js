@@ -21,7 +21,7 @@ function renderOneCar(car){
             <h4><p>Car Make:  ${car.make}</p></h4>
             <h4><p>Car Model: ${car.model}</p></h4>
             <h4><p>Car year: ${car.year}</p></h4>
-            <h4><p>Trim: ${car.trim}</p></h4>
+            <h4><p>trim: ${car.trim}</p></h4>
 
          <button type="click">Remove From List</button>
          </div> `;
@@ -45,15 +45,14 @@ function addCar(carShow){
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
-        },
+    },
     body: JSON.stringify(carShow)
     })
     .then(response=>response.json())
     .then(car=>renderOneCar(car))
-}
-
+};
 //load my cars list from json file
 function initialize(){
-    getAllCars();
+    getAllcars()
 }
 initialize();
