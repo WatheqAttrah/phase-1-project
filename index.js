@@ -26,10 +26,13 @@ function renderOneCar(car){
 
             <button type="click">Remove From List</button>
          </div> `;
-//append to DOM
+
+
+
+//Append  the car to child inside the DOM
 document.querySelector('ul').appendChild(card)
 //Remove from list 
-let btn = card.querySelector('div ul li div')//remove btn
+let btn = card.querySelector('div ul li div')//Remove button
 btn.addEventListener('click', ()=>{
     card.remove()
     removeCar(car.id)
