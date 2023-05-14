@@ -1,7 +1,5 @@
 //Add EventListener to Button
-console.log("Hello Live");
 document.querySelector('form').addEventListener('submit', handleSubmit)
-
 //callback function for eventlistener
 function handleSubmit(e){
     e.preventDefault()
@@ -12,10 +10,12 @@ function handleSubmit(e){
         trim:e.target.trim.value,
     }
 renderOneCar(carShow)
-//Using reste function to prevent redirect
+//Using reset function to prevent redirect
 document.querySelector('form').reset()
 addCar(carShow);
 }
+
+
 //add car to the car list
 function renderOneCar(car){
     let card = document.createElement("li")
@@ -28,25 +28,25 @@ function renderOneCar(car){
 
             <button type="click">Remove From List</button>
          </div> `;
-
-//add new car to my car list and append it to Unordered List
+//append to DOM
 document.querySelector('ul').appendChild(card)
+//Remove from list 
+let btn = card.querySelector('div ul li div')
+btn.addEventListener('click', ()=>{
+    card.remove()
+    removeCar(car.id)
+    })
+}
 
-//Remove car from list 
-//let btn = document.querySelector('div ul');
 
-btn.addEventListener('click', e=>e.target.parentNode.parentNode.remove())
-//Remove car fetch function 
-removeCar(car.id)
-
-//function get cars
+// fetch GET
 function getCars(){
     fetch('http://localhost:3000/carShow')
     .then(response=>response.json())
     .then(cars=>cars.forEach(car=>renderOneCar(car)))
 }
 
-//take car from (form) and add it to page
+//fetch POST
 function addCar(carShow){
     fetch('http://localhost:3000/carShow',{
         method: 'POST',
@@ -59,18 +59,19 @@ function addCar(carShow){
     .then(car=>renderOneCar(car));
 }
 
-//Remove a car form the object carShow
+// fetch DELETE
 function removeCar(id){
-    fetch(`http://localhost:3000/${id}`,{
+    fetch(`http://localhost:3000/carShow/${id}`,{
         method:'DELETE',
         headers:{
             'Content-Type':'application/json'
         }
     })
     .then(response=>response.json())
-    .then(can=>console.log(car))
+    .then(car=>console.log(car))
 }
+
 function initialize(){
     getCars()
 }
-initialize();
+initialize()
