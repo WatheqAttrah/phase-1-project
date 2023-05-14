@@ -38,14 +38,14 @@ btn.addEventListener('click', ()=>{
     removeCar(car.id)
     })
 }
-// fetch GET
+
 function fetchCars(){
     fetch('http://localhost:3000/carShow')
     .then(response=>response.json())
     .then(cars=>cars.forEach(car=>renderOneCar(car)))
 }
 
-//fetch POST
+
 function addCar(carShow){
     fetch('http://localhost:3000/carShow',{
         method: 'POST',
@@ -57,7 +57,7 @@ function addCar(carShow){
     .then(response=>response.json())
     .then(car=>renderOneCar(car));
 }
-// fetch DELETE
+
 function removeCar(id){
     fetch(`http://localhost:3000/carShow/${id}`,{
         method:'DELETE',
@@ -68,6 +68,7 @@ function removeCar(id){
     .then(response=>response.json())
     .then(car=>console.log(car))
 }
+
 function initialize(){
     fetchCars()
 }
