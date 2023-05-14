@@ -1,4 +1,5 @@
 //Add EventListener to Button
+console.log("Hello Live");
 document.querySelector('form').addEventListener('submit', handleSubmit)
 
 //callback function for eventlistener
@@ -15,9 +16,6 @@ renderOneCar(carShow)
 document.querySelector('form').reset()
 addCar(carShow);
 }
-
-
-
 //add car to the car list
 function renderOneCar(car){
     let card = document.createElement("li")
@@ -36,49 +34,43 @@ document.querySelector('ul').appendChild(card)
 
 //Remove car from list 
 //let btn = document.querySelector('div ul');
-card.querySelector('#remove-btn').addEventListener('click',()=>{
-    card.remove();
-    removeCar(car.id);
-})
+
+btn.addEventListener('click', e=>e.target.parentNode.parentNode.remove())
+//Remove car fetch function 
+removeCar(car.id)
+
+//function get cars
+function getCars(){
+    fetch('http://localhost:3000/carShow')
+    .then(response=>response.json())
+    .then(cars=>cars.forEach(car=>renderOneCar(car)))
 }
-// btn.addEventListener('click', e=>e.target.parentNode.parentNode.remove())
-// //Remove car fetch function 
-// removeCar(car.id)
 
-// //contact json server and load my cars list json file
-// // function getAllCars(){
-// //     fetch("http://localhost:3000/carShow")
-// //     .then(response =>response.json())
-// //     .then(cars => cars.forEach(car => renderOneCar(car)))
-// // }
-// //function get cars
-// function getCars(){
-//     fetch('http://localhost:3000/carShow')
-//     .then(response=>response.json())
-//     .then(cars=>cars.forEach(car=>renderOneCar(car)))
-// }
+//take car from (form) and add it to page
+function addCar(carShow){
+    fetch('http://localhost:3000/carShow',{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+    body: JSON.stringify(carShow)
+    })
+    .then(response=>response.json())
+    .then(car=>renderOneCar(car));
+}
 
-// //take car from (form) and add it to page
-// function addCar(carShow){
-//     fetch('http://localhost:3000/carShow',{
-//         method: 'POST',
-//         headers:{
-//             'Content-Type': 'application/json'
-//         },
-//     body: JSON.stringify(carShow)
-//     })
-//     .then(response=>response.json())
-//     .then(car=>renderOneCar(car))
-// }
-
-// //Remove a car form the object carShow
-// function removeCar(id){
-//     fetch(`http://localhost:3000/${id}`,{
-//         method:'DELETE',
-//         headers:{
-//             'Content-Type':'application/json'
-//         }
-//     })
-//     .then(response=>response.json())
-//     .then(can=>console.log(car))
-// }
+//Remove a car form the object carShow
+function removeCar(id){
+    fetch(`http://localhost:3000/${id}`,{
+        method:'DELETE',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(response=>response.json())
+    .then(can=>console.log(car))
+}
+function initialize(){
+    getCars()
+}
+initialize();
