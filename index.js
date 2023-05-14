@@ -2,7 +2,7 @@
 document.querySelector('form').addEventListener('submit', handleSubmit)
 //callback function for eventlistener
 function handleSubmit(e){
-    e.preventDefault()
+    e.preventDefault()//Prevent to re-direct the from 
     let carShow = {
         make:e.target.make.value,     
         model:e.target.model.value,  
@@ -12,10 +12,8 @@ function handleSubmit(e){
 renderOneCar(carShow)
 //Using reset function to prevent redirect
 document.querySelector('form').reset()
-addCar(carShow);
+addCar(carShow);//add the car to the object 
 }
-
-
 //add car to the car list
 function renderOneCar(car){
     let card = document.createElement("li")
@@ -31,16 +29,14 @@ function renderOneCar(car){
 //append to DOM
 document.querySelector('ul').appendChild(card)
 //Remove from list 
-let btn = card.querySelector('div ul li div')
+let btn = card.querySelector('div ul li div')//remove btn
 btn.addEventListener('click', ()=>{
     card.remove()
     removeCar(car.id)
     })
 }
-
-
 // fetch GET
-function getCars(){
+function fetchCars(){
     fetch('http://localhost:3000/carShow')
     .then(response=>response.json())
     .then(cars=>cars.forEach(car=>renderOneCar(car)))
@@ -58,7 +54,6 @@ function addCar(carShow){
     .then(response=>response.json())
     .then(car=>renderOneCar(car));
 }
-
 // fetch DELETE
 function removeCar(id){
     fetch(`http://localhost:3000/carShow/${id}`,{
@@ -70,8 +65,7 @@ function removeCar(id){
     .then(response=>response.json())
     .then(car=>console.log(car))
 }
-
 function initialize(){
-    getCars()
+    fetchCars()
 }
 initialize()
