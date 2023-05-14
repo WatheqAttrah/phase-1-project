@@ -1,5 +1,5 @@
 //Add EventListener to Button
-document.querySelector('form').addEventListener('submit', handleSubmit)
+document.querySelector('form').addEventListener('submit',handleSubmit)
 //callback function for eventlistener
 function handleSubmit(e){
     e.preventDefault()//Prevent to re-direct the from 
