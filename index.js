@@ -45,7 +45,7 @@ function fetchCars(){
     .then(cars=>cars.forEach(car=>renderOneCar(car)))
 }
 
-
+//POST FETCH TO JSON OBJECT
 function addCar(carShow){
     fetch('http://localhost:3000/carShow',{
         method: 'POST',
