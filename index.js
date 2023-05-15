@@ -57,7 +57,7 @@ function addCar(carShow){
     .then(response=>response.json())
     .then(car=>renderOneCar(car));
 }
-
+//DELETE FETCH FROM JSON OBJECT
 function removeCar(id){
     fetch(`http://localhost:3000/carShow/${id}`,{
         method:'DELETE',
