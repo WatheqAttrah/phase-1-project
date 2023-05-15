@@ -23,12 +23,8 @@ function renderOneCar(car){
             <p>Car Model: ${car.model}</p>
             <p>Car year: ${car.year}</p>
             <p>trim: ${car.trim}</p>
-
             <button type="click">Remove From List</button>
          </div> `;
-
-
-
 //Append  the car to child inside the DOM
 document.querySelector('ul').appendChild(card)
 //Remove from list 
