@@ -38,7 +38,7 @@ btn.addEventListener('click', ()=>{
     removeCar(car.id)
     })
 }
-
+//GET FETCH FROM JSON FILE
 function fetchCars(){
     fetch('http://localhost:3000/carShow')
     .then(response=>response.json())
