@@ -68,7 +68,7 @@ function removeCar(id){
     .then(response=>response.json())
     .then(car=>console.log(car))
 }
-
+//TO READ DATA FROM JSON FILE OR API
 function initialize(){
     fetchCars()
 }
