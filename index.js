@@ -43,7 +43,7 @@ function renderOneCar(car){
     //Create carYearinformation element
     const carYear=document.createElement("p");
     carYear.textContent="Car Year:";
-    carYear.appendChild(document.createTextNode(car.Year));
+    carYear.appendChild(document.createTextNode(car.year));
 
     //Create carTrim information element
     const carTrim=document.createElement("p");

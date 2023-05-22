@@ -15,25 +15,18 @@
       "id": 2
     },
     {
-      "make": "Toyota",
-      "model": "Rav4",
-      "year": "2023",
-      "trim": "XLE",
+      "make": "",
+      "model": "",
+      "year": "",
+      "trim": "",
       "id": 3
     },
     {
-      "make": "Toyota",
-      "model": "Tacoma",
-      "year": "2023",
-      "trim": "TRE",
+      "make": "",
+      "model": "",
+      "year": "",
+      "trim": "",
       "id": 4
-    },
-    {
-      "make": "Toyota",
-      "model": "Highlander",
-      "year": "2023",
-      "trim": "XLE-Limted",
-      "id": 5
     }
   ]
 }
