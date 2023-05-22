@@ -8,33 +8,32 @@ function handleSubmit(e){
         year:e.target.year.value,
         trim:e.target.trim.value
     }
-addCar(carShow);
-renderOneCar(carShow);
-document.querySelector("form").reset()
-e.preventDefault()
+    addCar(carShow);
+    renderOneCar(carShow);
+    document.querySelector("form").reset()
+    e.preventDefault()
 }
 
 function renderOneCar(car){
     const card = document.createElement("li")
     card.innerHTML = `
     <div>
-    <p>Car Make:  ${car.make}</p>
-    <p>Car Model: ${car.model}</p>
-    <p>Car Year: ${car.year}</p>
-    <p>Car Trim: ${car.trim}</p>
+    <p>Car Make:${car.make}</p>
+    <p>Car Model:${car.model}</p>
+    <p>Car Year:${car.year}</p>
+    <p>Car Trim:${car.trim}</p>
     <p>Car Id:${car.id}</p>
     
     <button type="click">Remove From List</button>
     </div>
     `;
-}
-document.querySelector("ul").appendChild(card)
-
-const btn=card.querySelector("btn")
-btn.addEventListener("click",()=>{
+    document.querySelector("ul").appendChild(card)
+    const btn=card.querySelector("btn")
+    btn.addEventListener("click",()=>{
     card.remove();
     removeCar(car.id)
-});
+    })
+}
 
 function fetchCars(){
     fetch("http://localhost:3000/carShow")
