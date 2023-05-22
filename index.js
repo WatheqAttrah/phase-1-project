@@ -3,7 +3,7 @@ document.querySelector('form').addEventListener('submit',handleSubmit)
 //callback function for eventlistener
 function handleSubmit(e){
     e.preventDefault()//Prevent to re-direct the from 
-    let carShow = {
+    const carShow = {
         make:e.target.make.value,     
         model:e.target.model.value,  
         year:e.target.year.value,
@@ -16,9 +16,10 @@ addCar(carShow);//add the car to the object
 }
 //add car to the car list
 function renderOneCar(car){
-    let card = document.createElement("li")
+    const card = document.createElement("li")
     card.innerHTML = `
          <div>
+            <p>Car id:${car.id}</p>
             <p>Car Make:  ${car.make}</p>
             <p>Car Model: ${car.model}</p>
             <p>Car year: ${car.year}</p>
