@@ -22,39 +22,18 @@
       "id": 3
     },
     {
-      "make": "Toyota",
-      "model": "Tacoma",
-      "year": "2023",
-      "trim": "TRE",
+      "make": "Honda ",
+      "model": "Pilot ",
+      "year": "22",
+      "trim": "EX-L",
       "id": 4
     },
     {
-      "make": "Toyota",
-      "model": "Highlander",
-      "year": "2023",
-      "trim": "XLE-Limted",
+      "make": "Honda ",
+      "model": "Pilot ",
+      "year": "2021",
+      "trim": "EX-L",
       "id": 5
-    },
-    {
-      "make": "",
-      "model": "",
-      "year": "",
-      "trim": "",
-      "id": 6
-    },
-    {
-      "make": "",
-      "model": "",
-      "year": "",
-      "trim": "",
-      "id": 7
-    },
-    {
-      "make": "",
-      "model": "",
-      "year": "",
-      "trim": "",
-      "id": 8
     }
   ]
 }

@@ -23,3 +23,25 @@ button {
   position: relative;
   float: left;
 }
+input[type=text] {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 2px solid blue;
+  border-radius: 4px;
+  background-color: wheat;
+  cursor: pointer;
+}
+input[type=number] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 2px solid red;
+  border-radius: 4px;
+  background-color: wheat;
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
