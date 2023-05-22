@@ -1,3 +1,4 @@
+//Console to verify the file is loaded 
 console.log("Hello from the index.js");
 
 //Add EventListener to Button
@@ -9,7 +10,7 @@ form.addEventListener('submit', handleSubmit);
 
 //Callback function for Submit Eventlistener
 function handleSubmit(e){
-    e.preventDefault();
+    e.preventDefault(); //Prevent the form from reload or refresh
 
     const carShow = {
         make:e.target.make.value,     
@@ -22,7 +23,7 @@ function handleSubmit(e){
     form.reset()
     addCar(carShow);
 };
-//
+//Rendering one car to the DOM
 function renderOneCar(car){
     //Create a card element
     const card=document.createElement("li");
@@ -58,9 +59,9 @@ function renderOneCar(car){
     //Create RemoveButton
     const removeButton=document.createElement("button");
     removeButton.type="submit";
-    removeButton.textContent="Reomve from list";
+    removeButton.textContent="Remove from list";
 
-    //Add EventListener to tje removeButton
+    //Add EventListener to to removeButton
     removeButton.addEventListener("click",(e)=>{
         e.preventDefault();
         card.remove();
