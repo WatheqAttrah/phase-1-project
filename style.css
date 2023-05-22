@@ -41,7 +41,3 @@ input[type=number] {
   background-color: wheat;
   cursor: pointer;
 }
-img {
-  max-width: 100%;
-  height: auto;
-}

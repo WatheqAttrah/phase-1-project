@@ -6,29 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script defer src="index.js"></script>
-    <title>Car Show </title> 
+    <title>CarShow </title> 
 </head>
 <body>
-    <img src="107152576-20221116_01_03_s.jpeg" alt="Cinque Terre" width="1000" height="300">
     <header>
+        <p> 
+            This is phase-1 project, I want to thank every one from the facility staff for the efforts teaching
+             us the every topic in software development engineering! 
+        </p>
+        <br><br>
         <p><strong> Welcome to the carShow </strong></p> 
     </header>
     <div>
-        <form>
+        <form id="my_form">
             <br><br>
-            <label for="make">Car Make:</label>
+            <label for="make"><strong>Car Make:</strong></label>
             <input type="text" name="make" placeholder="Add car make..."/>
             <br><br>
-            <label for="model">Car Mdel:</label> 
+            <label for="model"><strong>Car Model:</strong></label> 
             <input type="text" name="model" placeholder="Add car model..."/>
             <br><br>
-            <label for="year">Car Year</label> 
+            <label for="year"><strong> Car Year:</strong></label> 
             <input type="number" name="year" placeholder="Car year."/>
             <br><br>
-            <label for="trim">Car Trim:</label> 
+            <label for="trim"><strong>Car Trim:</strong></label> 
             <input type="text" name="trim" placeholder="Add car trim..."/>
             <br><br>
-            <button type="submit" value="submit">Add to list</button>
+            <button type="submit" id="submit">Submit</button>
         </form>
         <br>
             <h4>My car list:</h4>

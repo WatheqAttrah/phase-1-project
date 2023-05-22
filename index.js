@@ -1,74 +1,112 @@
+console.log("Hello from the index.js");
+
 //Add EventListener to Button
-document.querySelector('form').addEventListener('submit', handleSubmit)
-//callback function for eventlistener
+const form=document.getElementById("my_form")
+const submitBtn=document.querySelector("button");
+form.addEventListener('submit', handleSubmit);
+
+
+
+//Callback function for Submit Eventlistener
 function handleSubmit(e){
-    e.preventDefault()
-    let carShow = {
+    e.preventDefault();
+
+    const carShow = {
         make:e.target.make.value,     
         model:e.target.model.value,  
         year:e.target.year.value,
         trim:e.target.trim.value,
         id:e.target.id.value,
-
-    }
-renderOneCar(carShow)
-//Using reset function to prevent redirect
-document.querySelector('form').reset()
-addCar(carShow);
-}
-
-
-//add car to the car list
+    };
+//To the form element to reset the form to the initail state.
+    form.reset()
+    addCar(carShow);
+};
+//
 function renderOneCar(car){
-    const card = document.createElement("li")
-    card.innerHTML = `
-         <div>
-            <p>Car Make:  ${car.make}</p>
-            <p>Car Model: ${car.model}</p>
-            <p>Car Year: ${car.year}</p>
-            <p>Car Trim: ${car.trim}</p>
-            <p>Car Id: ${car.id}</p>
-            <br><br>
-            <button type="click">Remove From List</button>
-            <br><br>
-         </div> `;
-//append to DOM
-document.querySelector('ul').appendChild(card)
-//Remove from list 
-const btn = card.querySelector('button')
-btn.addEventListener('click', ()=>{
-    card.remove()
-    removeCar(car.id)
-    })
+    //Create a card element
+    const card=document.createElement("li");
+    //Create a card content container 
+    const cardContent=document.createElement("div");
+
+
+    //Create carMake information element
+    const carMake=document.createElement("p");
+    carMake.textContent="Car Make:";
+    carMake.appendChild(document.createTextNode(car.make));
+
+    //Create carModel information element
+    const carModel=document.createElement("p");
+    carModel.textContent="Car Model:";
+    carModel.appendChild(document.createTextNode(car.model));
+
+    //Create carYearinformation element
+    const carYear=document.createElement("p");
+    carYear.textContent="Car Year:";
+    carYear.appendChild(document.createTextNode(car.Year));
+
+    //Create carTrim information element
+    const carTrim=document.createElement("p");
+    carTrim.textContent="Car Trim:";
+    carTrim.appendChild(document.createTextNode(car.trim));
+
+    //Create carId information element
+    const carId=document.createElement("p");
+    carId.textContent="Car Id:";
+    carId.appendChild(document.createTextNode(car.id));
+
+    //Create RemoveButton
+    const removeButton=document.createElement("button");
+    removeButton.type="submit";
+    removeButton.textContent="Reomve from list";
+
+    //Add EventListener to tje removeButton
+    removeButton.addEventListener("click",(e)=>{
+        e.preventDefault();
+        card.remove();
+        removeCar(car.id);
+    });
+
+    cardContent.appendChild(carMake);
+    cardContent.appendChild(carModel);
+    cardContent.appendChild(carYear);
+    cardContent.appendChild(carTrim);
+    cardContent.appendChild(carId);
+
+    //Append the removeButton to the cardContent container
+    cardContent.appendChild(removeButton);
+    
+    //Append the cardContent container to the card element
+    card.appendChild(cardContent);
+
+    //Append card to the carShow
+    const carList=document.querySelector("ul");
+    carList.appendChild(card);
 }
-
-
-// fetch GET
+//Fetch GET
 function getCars(){
-    fetch('http://localhost:3000/carShow')
+    fetch("http://localhost:3000/carShow")
     .then(response=>response.json())
     .then(cars=>cars.forEach(car=>renderOneCar(car)))
 }
-
-//fetch POST
+//Fetch POST
 function addCar(carShow){
-    fetch('http://localhost:3000/carShow',{
-        method: 'POST',
+    fetch("http://localhost:3000/carShow",{
+        method: "POST",
         headers:{
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
     body: JSON.stringify(carShow)
     })
     .then(response=>response.json())
     .then(car=>renderOneCar(car));
-}
-
-// fetch DELETE
+};
+//Fetch DELETE
 function removeCar(id){
     fetch(`http://localhost:3000/carShow/${id}`,{
-        method:'DELETE',
+        method:"DELETE",
         headers:{
-            'Content-Type':'application/json'
+            "Content-Type":"application/json"
         }
     })
     .then(response=>response.json())

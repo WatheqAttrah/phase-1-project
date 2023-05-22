@@ -1,39 +1,32 @@
 {
   "carShow": [
     {
-      "make": "Toyota",
-      "model": "Camry",
-      "year": "2023",
-      "trim": "XSE",
+      "make": "",
+      "model": "",
+      "year": "",
+      "trim": "",
       "id": 1
     },
     {
-      "make": "Toyota",
-      "model": "Prius",
-      "year": "2023",
-      "trim": "Prime-PlugIn",
+      "make": "",
+      "model": "",
+      "year": "",
+      "trim": "",
       "id": 2
     },
     {
-      "make": "Toyota",
-      "model": "Rav4",
-      "year": "2023",
-      "trim": "XLE",
+      "make": "",
+      "model": "",
+      "year": "",
+      "trim": "",
       "id": 3
     },
     {
-      "make": "Honda ",
-      "model": "Pilot ",
-      "year": "22",
-      "trim": "EX-L",
+      "make": "",
+      "model": "",
+      "year": "",
+      "trim": "",
       "id": 4
-    },
-    {
-      "make": "Honda ",
-      "model": "Pilot ",
-      "year": "2021",
-      "trim": "EX-L",
-      "id": 5
     }
   ]
 }
