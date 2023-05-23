@@ -67,7 +67,7 @@ function renderOneCar(car){
         card.remove();
         removeCar(car.id);
     });
-
+//Appending all the following below to the cardContent 
     cardContent.appendChild(carMake);
     cardContent.appendChild(carModel);
     cardContent.appendChild(carYear);
